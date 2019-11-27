@@ -8,9 +8,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
+    <Button 
+        android:id="@+id/btambahkontak"
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Tambah Kontak"
+        />
+    
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btambahkontak"
+        />
 
 </RelativeLayout>

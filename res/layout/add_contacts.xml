@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+	<EditText
+		android:id="@+id/ename"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="Nama"
+		/>
+	
+	<EditText
+		android:id="@+id/eaddress"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/ename"
+		android:hint="Address"
+		/>
+	
+	<EditText
+		android:id="@+id/eemail"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/eaddress"
+		android:hint="Email"
+		/>
+    
+	<EditText
+		android:id="@+id/ephone"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/eemail"
+		android:hint="Phone"
+		/>
+	
+	<EditText
+		android:id="@+id/edob"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/ephone"
+		android:hint="Dob"
+		/>
+	
+	<Button 
+	    android:id="@+id/bsimpan"
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="S I M P A N"
+		android:layout_below="@+id/edob"
+	    />        
+
+</RelativeLayout>

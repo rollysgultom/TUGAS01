@@ -1,14 +1,14 @@
 package com.example.rollysgultom_163303030419_tugas01_7tipagib;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
+import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,22 +32,57 @@ public class FragmentInbox extends Fragment {
 	private ListView lv;
 	
 	private static String url = "http://apilearning.totopeto.com/messages/inbox?id=";
-	
+	private String Id, Name;
 	private ArrayList<HashMap<String, String>> messagelist;
-	
+	Button bsend;
 	private int Pesanmasuk;
+	private String contact_id, contact_name;
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab_inbox, container, false);
         
+        
+        
         messagelist = new ArrayList<HashMap<String, String>>();
         
         lv = (ListView) rootView.findViewById(R.id.messagelist);
         Totalinbox = (TextView) rootView.findViewById(R.id.Totalinbox);
+        bsend = (Button) rootView.findViewById(R.id.btsend); 
         
-        new GetMessages().execute();
-                
+        //new GetMessages().execute();
+        
+        lv.setOnItemClickListener(new OnItemClickListener() {
+			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				// TODO Auto-generated method stub
+				
+				HashMap<String, String> hm = messagelist.get(position);
+				
+				Intent intent = new Intent(getActivity(), ReplyMessage.class);
+				intent.putExtra("message_id", hm.get("id"));
+				//intent.putExtra("contact_name", Name);
+				intent.putExtra("contact_id", Id);
+				startActivity(intent);
+				
+			}
+		});
+        
+        bsend.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				contact_id = getArguments().getString("id");
+				contact_name = getArguments().getString("name");
+				Intent intent = new Intent(getActivity(), SendMessage.class);
+				intent.putExtra("contact_id", contact_id);
+				intent.putExtra("contact_name", contact_name);
+				startActivity(intent);
+			}
+		});
+        
         return rootView;
     }
 	
@@ -65,12 +100,16 @@ public class FragmentInbox extends Fragment {
  
         @Override
         protected Void doInBackground(Void... arg0) {
-    		String Id = getArguments().getString("id");
+        	messagelist.clear();
+    		String Idcontact = getArguments().getString("id");
+    		
+    		Id = getArguments().getString("id");
+			Name = getArguments().getString("name");
         	
             HttpHandler sh = new HttpHandler();
  
             // String jsonStr = sh.makeServiceCall(url + "1");
-            String jsonStr = sh.makeServiceCall(url + Id);
+            String jsonStr = sh.makeServiceCall(url + Idcontact);
  
             Log.e(TAG, "Response from url: " + jsonStr);
  
@@ -143,5 +182,11 @@ public class FragmentInbox extends Fragment {
             lv.setAdapter(adapter);
         }
  
+    }
+	
+	@Override
+    public void onResume() {
+    	super.onResume();
+    	new GetMessages().execute();
     }
 }

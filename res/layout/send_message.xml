@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+     <TextView 
+        android:id="@+id/tvke"
+        android:text="Kepada :"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <Spinner 
+        android:id="@+id/list_item_contact"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/tvke" />
+    
+    <TextView 
+        android:id="@+id/tvpesan"
+        android:text="Pesan :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_item_contact" />
+    
+    <EditText 
+        android:id="@+id/etpesan"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvpesan" />
+    
+    <Button 
+        android:id="@+id/btkirim"
+        android:text="Kirim"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etpesan" />    
+
+</RelativeLayout>

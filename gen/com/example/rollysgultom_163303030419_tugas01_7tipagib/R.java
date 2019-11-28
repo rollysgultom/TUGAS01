@@ -25,13 +25,15 @@ public final class R {
     }
     public static final class id {
         public static final int FromTo=0x7f08001d;
-        public static final int Jumlahinbox=0x7f080020;
-        public static final int Jumlahoutbox=0x7f080023;
-        public static final int Totalinbox=0x7f080021;
-        public static final int Totaloutbox=0x7f080024;
-        public static final int action_settings=0x7f080025;
+        public static final int Jumlahinbox=0x7f08002a;
+        public static final int Jumlahoutbox=0x7f08002d;
+        public static final int Totalinbox=0x7f08002b;
+        public static final int Totaloutbox=0x7f08002e;
+        public static final int action_settings=0x7f08002f;
         public static final int bsimpan=0x7f080007;
         public static final int btambahkontak=0x7f080000;
+        public static final int btkirim=0x7f080029;
+        public static final int btsend=0x7f080024;
         public static final int content=0x7f08001e;
         public static final int created_at=0x7f08001f;
         public static final int eaddress=0x7f080003;
@@ -39,8 +41,11 @@ public final class R {
         public static final int eemail=0x7f080004;
         public static final int email=0x7f08001b;
         public static final int ename=0x7f080002;
+        public static final int entripesan=0x7f080023;
         public static final int ephone=0x7f080005;
+        public static final int etpesan=0x7f080028;
         public static final int fragment_container=0x7f080008;
+        public static final int isipesan=0x7f080020;
         public static final int ketaddress=0x7f08000e;
         public static final int ketcreated_at=0x7f080016;
         public static final int ketdob=0x7f080014;
@@ -50,16 +55,21 @@ public final class R {
         public static final int ketphone=0x7f080012;
         public static final int ketupdated_at=0x7f080018;
         public static final int list=0x7f080001;
-        public static final int messagelist=0x7f080022;
+        public static final int list_item_contact=0x7f080026;
+        public static final int messagelist=0x7f08002c;
         public static final int mobile=0x7f08001c;
         public static final int name=0x7f08001a;
+        public static final int pesanmasuk=0x7f080021;
+        public static final int teksbalasan=0x7f080022;
         public static final int title=0x7f080009;
         public static final int tvaddress=0x7f08000f;
         public static final int tvcreated_at=0x7f080017;
         public static final int tvdob=0x7f080015;
         public static final int tvemail=0x7f080011;
         public static final int tvid=0x7f08000b;
+        public static final int tvke=0x7f080025;
         public static final int tvname=0x7f08000d;
+        public static final int tvpesan=0x7f080027;
         public static final int tvphone=0x7f080013;
         public static final int tvupdated_at=0x7f080019;
     }
@@ -70,8 +80,10 @@ public final class R {
         public static final int contacts_layout=0x7f030003;
         public static final int list_item=0x7f030004;
         public static final int list_messages=0x7f030005;
-        public static final int tab_inbox=0x7f030006;
-        public static final int tab_outbox=0x7f030007;
+        public static final int reply_message=0x7f030006;
+        public static final int send_message=0x7f030007;
+        public static final int tab_inbox=0x7f030008;
+        public static final int tab_outbox=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f070000;

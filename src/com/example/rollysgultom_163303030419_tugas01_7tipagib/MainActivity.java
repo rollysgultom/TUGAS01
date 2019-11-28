@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity {
     private String TAG = MainActivity.class.getSimpleName();
     private ProgressDialog pDialog;
     private ListView lv;
+    private Button BTK;
  
     // URL to get contacts JSON
     private static String url = "http://apilearning.totopeto.com/contacts";
@@ -39,6 +41,8 @@ public class MainActivity extends Activity {
         contactList = new ArrayList<HashMap<String, String>>();
         
         lv = (ListView) findViewById(R.id.list);
+        
+        BTK = (Button) findViewById(R.id.btambahkontak);
  
         new GetContacts().execute();
         
@@ -50,7 +54,7 @@ public class MainActivity extends Activity {
 				//Toast.makeText(MainActivity.this, "Tested!", Toast.LENGTH_SHORT).show();
 				HashMap<String, String> hm = contactList.get(arg2);
 				
-				Intent intent = new Intent(MainActivity.this, ContactDetails.class);
+				Intent intent = new Intent(MainActivity.this, Messages.class);
 				
 				intent.putExtra("id", hm.get("id"));
 				intent.putExtra("name", hm.get("name"));
@@ -67,6 +71,18 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+        
+        BTK.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
+				Intent intent = new Intent(MainActivity.this, AddContacts.class);
+				startActivity(intent);
+			}
+		});
+        
     }
 
 
@@ -85,7 +101,10 @@ public class MainActivity extends Activity {
  
         @Override
         protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
+            
+        	//contactList.clear();
+        	
+        	HttpHandler sh = new HttpHandler();
  
             // Making a request to url and getting response
             String jsonStr = sh.makeServiceCall(url);
